@@ -21,6 +21,8 @@ namespace HeatingStore.Domain
         public string Picture { get; set; }
         [Required]
         [Range(0, 5000)]
+        public string Description { get; set; }
+        [Required]
         public int Quantity { get; set; }
         [Required]
         public decimal Price { get; set; }
