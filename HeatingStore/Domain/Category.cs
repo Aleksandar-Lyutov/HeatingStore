@@ -12,6 +12,6 @@ namespace HeatingStore.Domain
         [Required]
         [MaxLength(30)]
         public string CategoryName { get; set; }
-        public virtual IEnumerable<Product> Products { get; set; } = new List<Product>();
+        public virtual IEnumerable<HeatingDevice> Products { get; set; } = new List<HeatingDevice>();
     }
 }

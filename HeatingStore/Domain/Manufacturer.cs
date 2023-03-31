@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace HeatingStore.Domain
 {
-    public class Brand
+    public class Manufacturer
     {
         public int Id { get; set; }
         [Required]
         [MaxLength(30)]
         public string BrandName { get; set; }
-        public virtual IEnumerable<Product> Products { get; set; } = new List<Product>();
+        public virtual IEnumerable<HeatingDevice> Products { get; set; } = new List<HeatingDevice>();
     }
 }

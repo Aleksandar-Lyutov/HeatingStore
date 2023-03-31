@@ -15,7 +15,7 @@ namespace HeatingStore.Domain
         public DateTime OrderDate { get; set; }
         [Required]
         public int ProductId  { get; set; }
-        public virtual Product Product { get; set; }
+        public virtual HeatingDevice HeatingDevice { get; set; }
         [Required]
         public string UserId { get; set; }
         public virtual ApplicationUser User { get; set; }
