@@ -1,0 +1,72 @@
+﻿@model HeatingStore.Models.Order.OrderConfirmVM
+
+@{
+    ViewData["Title"] = "Confirm";
+}
+
+<h4>Confirm</h4>
+<form asp-controller="Order" asp-action="Create" method="post">
+    <div>
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.HeatingDeviceName)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.HeatingDeviceName)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Picture)
+            </dt>
+            <dd class="col-sm-10">
+                <img src="@Html.DisplayFor(model=>model.Picture)" alt="Image" width="100" />
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Quantity)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Quantity)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Price)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Price)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Discount)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Discount)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.TotalPrice)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TotalPrice)
+            </dd>
+        </dl>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Confirm" class="btn btn-primary" />
+    </div>
+    <input type="hidden" asp-for="HeatingDeviceId" value="@Model.HeatingDeviceId" />
+    <input type="hidden" asp-for="Quantity" value="@Model.Quantity" />
+    <input type="hidden" asp-for="Description" value="@Model.Description" />
+    <input type="hidden" asp-for="UserId" value="@Model.UserId" />
+    <input type="hidden" asp-for="Price" value="@Model.Price" />
+    <input type="hidden" asp-for="Discount" value="@Model.Discount" />
+</form>
+
+<div>
+    <a asp-controller="HeatingDevice" asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts{
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

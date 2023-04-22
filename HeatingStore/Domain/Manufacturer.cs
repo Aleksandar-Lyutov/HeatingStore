@@ -11,7 +11,7 @@ namespace HeatingStore.Domain
         public int Id { get; set; }
         [Required]
         [MaxLength(30)]
-        public string BrandName { get; set; }
-        public virtual IEnumerable<HeatingDevice> Products { get; set; } = new List<HeatingDevice>();
+        public string ManufacturerName { get; set; }
+        public virtual IEnumerable<HeatingDevice> HeatingDevices { get; set; } = new List<HeatingDevice>();
     }
 }

@@ -1,4 +1,8 @@
+using HeatingStore.Abstraction;
 using HeatingStore.Data;
+using HeatingStore.Domain;
+using HeatingStore.Infrastructure;
+using HeatingStore.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -28,14 +32,19 @@ namespace HeatingStore
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(
+                options.UseLazyLoadingProxies().UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDatabaseDeveloperPageExceptionFilter();
 
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
+            services.AddDefaultIdentity<ApplicationUser>()
+                .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
+            services.AddTransient<IHeatingDeviceService, HeatingDeviceService>();
             services.AddRazorPages();
+            services.AddTransient<ICategoryService, CategoryService>();
+            services.AddTransient<IManufacturerService, ManufacturerService>();
+            services.AddTransient<IStatisticsService, StatisticsService>();
             services.Configure<IdentityOptions>(options =>
                 {
                     options.Password.RequireDigit = false;
@@ -52,6 +61,7 @@ namespace HeatingStore
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.PrepareDatabase();
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
