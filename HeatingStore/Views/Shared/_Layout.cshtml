@@ -7,11 +7,13 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
-<body>
+<body class="gradient-custom">
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">HeatingStore</a>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light box-shadow mb-3 ">
+            <div class="navbar-container">
+                <a href="@Url.Action("Index", "Home")">
+                    <img src="https://i.imgur.com/OltzTKO.png" alt="Image" style="width:70px; height:70px;" />
+                </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -21,18 +23,19 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Contact" asp-action="Contacts">Contacts</a>
+                        @if ((this.User.Identity.IsAuthenticated))
+                        {<li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Contact" asp-action="ContactUs">Contact Us</a>
+                            </li>}
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="HeatingDevice" asp-action="Index">Heating Devices</a>
                         </li>
                         @if ((this.User.Identity.IsAuthenticated))
                         {
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Order" asp-action="MyOrders">My Orders</a>
-                        </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Order" asp-action="MyOrders">My Orders</a>
+                            </li>
                         }
-                        </li>
                         @if ((this.User.Identity.IsAuthenticated) && (this.User.IsInRole("Administrator")))
                         {
                             <li class="nav-item dropdown">
@@ -41,6 +44,7 @@
                                     Statistic Modul
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item" asp-controller="Contact" asp-action="Index">Messages</a>
                                     <a class="dropdown-item" asp-controller="Client" asp-action="Index">Clients</a>
                                     <a class="dropdown-item" asp-controller="Order" asp-action="Index">Orders</a>
                                     <a class="dropdown-item" asp-controller="Statistics" asp-action="Index">Statistics</a>
@@ -59,8 +63,8 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
+    <footer class=" footer text-muted">
+        <div class="container1">
             &copy; 2023 - HeatingStore - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
@@ -70,3 +74,107 @@
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
+<style>
+    .navbar-container {
+        margin: 0 auto;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        width: 1800px;
+    }
+    .gradient-custom {
+        background: linear-gradient(darkblue, lightblue);
+    }
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+    }
+
+    .container {
+        width: 80%;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .container1 {
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        max-width: 1700px;
+    }
+
+    h1 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    @@media (min-width: 576px) {
+  .container {
+    width: 90%;
+  }
+}
+
+@@media (min-width: 768px) {
+  .container {
+    width: 80%;
+  }
+}
+
+@@media (min-width: 992px) {
+  .container {
+    width: 70%;
+  }
+}
+
+@@media (min-width: 1200px) {
+  .container {
+    width: 60%;
+  }
+}
+.btn1 {
+  background: linear-gradient(45deg, #4a90e2, #4bd1a0);
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 5px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.btn1:hover {
+  background: linear-gradient(45deg, #4bd1a0, #4a90e2);
+  color: white;
+  text-decoration: none;
+}
+.btn-order {
+        background: linear-gradient(to bottom, #B30000, #FF4C4C);
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        border-radius: 5px;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    .btn-order:hover {
+        background: linear-gradient(to bottom, #FF4C4C, #B30000);
+    }
+</style>

@@ -9413,11 +9413,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\source\\repos\\HeatingStore\\HeatingStore\\HeatingStore.csproj",
+      "projectUniqueName": "C:\\Users\\User\\Desktop\\Александър Лютов\\HeatingStore\\HeatingStore\\HeatingStore.csproj",
       "projectName": "HeatingStore",
-      "projectPath": "C:\\Users\\User\\source\\repos\\HeatingStore\\HeatingStore\\HeatingStore.csproj",
+      "projectPath": "C:\\Users\\User\\Desktop\\Александър Лютов\\HeatingStore\\HeatingStore\\HeatingStore.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User\\source\\repos\\HeatingStore\\HeatingStore\\obj\\",
+      "outputPath": "C:\\Users\\User\\Desktop\\Александър Лютов\\HeatingStore\\HeatingStore\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",

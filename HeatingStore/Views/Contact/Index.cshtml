@@ -1,0 +1,25 @@
+﻿@model IEnumerable<HeatingStore.Models.Contact.ContactMessageVM>
+
+<div class="table-container">
+    <table class="table">
+        <h1>Contact Messages</h1>
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Comment</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var message in Model)
+            {
+<tr>
+    <td>@message.FirstName</td>
+    <td>@message.LastName</td>
+    <td>@message.Email</td>
+    <td>@message.Comment</td>
+</tr>}
+        </tbody>
+    </table>
+</div>

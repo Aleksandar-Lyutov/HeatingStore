@@ -1,0 +1,194 @@
+﻿@if (TempData["MessageSent"] != null)
+{
+<div class="alert">@TempData["MessageSent"]</div>}
+<body class="gradient-custom">
+    <div class="contact-container">
+        <div class="contact-info">
+            <h3>Contact Information</h3>
+            <div class="contact-item">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Phone_font_awesome.svg/1200px-Phone_font_awesome.svg.png" alt="Phone">
+                <a href="tel:+359882758161">+359882758161</a>
+            </div>
+            <div class="contact-item">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Envelope_alt_font_awesome.svg/1024px-Envelope_alt_font_awesome.svg.png" alt="Mail">
+                <a href="mailto:sasho.lyutov@gmail.com">sasho.lyutov@gmail.com</a>
+            </div>
+            <div class="contact-item">
+                <img src="https://cdn.pixabay.com/photo/2021/06/15/12/17/instagram-6338401_1280.png" alt="Instagram">
+                <a href="https://www.instagram.com/alexanderlyutov/">alexanderlyutov</a>
+            </div>
+            <div class="contact-item">
+                <img src="https://cdn-icons-png.flaticon.com/512/124/124010.png" alt="Facebook">
+                <a href="https://www.facebook.com/profile.php?id=100012376295193">Alexander Lyutov</a>
+            </div>
+        </div>
+
+        <div class="contact-form">
+            <h3>Contact Form</h3>
+            <form method="post">
+                <div class="form-group">
+                    <label for="firstName">First Name</label>
+                    <input type="text" class="form-control" name="firstName" id="firstName" value="@Model.FirstName" required>
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" class="form-control" name="lastName" id="lastName" value="@Model.LastName" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" name="email" id="email" value="@Model.Email" required>
+                </div>
+                <div class="form-group">
+                    <label for="comment">Comment</label>
+                    <textarea class="form-control" name="comment" id="comment" required>@Model.Comment</textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Send</button>
+            </form>
+        </div>
+    </div>
+    </body>
+
+    <style>
+        .create-new-btn {
+            background-color: #fe90d2;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+            .create-new-btn:hover {
+                background-color: #ff6fba;
+                text-decoration: none;
+                color: black;
+            }
+
+            .create-new-btn:focus {
+                outline: none;
+            }
+
+        .gradient-custom {
+            background: linear-gradient(to bottom, #fe90d2, #fefa3f);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        .body-container {
+            max-width: 1160px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .contact-info {
+            border: 2px solid #ddd;
+            padding: 20px;
+            text-align: center;
+            background-color: white;
+            border-radius: 10px;
+            margin: 20px;
+            flex: 1;
+            max-width: 500px;
+        }
+
+            .contact-info h3 {
+                font-size: 24px;
+                margin-bottom: 20px;
+                color: #333;
+                text-transform: uppercase;
+            }
+
+        .contact-item {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: #666;
+            line-height: 1.5;
+            display: flex;
+            align-items: center;
+        }
+
+            .contact-item img {
+                width: 20px;
+                height: 20px;
+                margin-right: 10px;
+            }
+
+            .contact-item a {
+                color: #333;
+                text-decoration: none;
+            }
+
+                .contact-item a:hover {
+                    color: #555;
+                }
+
+        .contact-form {
+            border: 2px solid #ddd;
+            padding: 20px;
+            text-align: center;
+            background-color: white;
+            border-radius: 10px;
+            margin: 20px;
+            flex: 1;
+            max-width: 500px;
+        }
+
+            .contact-form h3 {
+                font-size: 24px;
+                margin-bottom: 20px;
+                color: #333;
+                text-transform: uppercase;
+            }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+            .form-group label {
+                display: block;
+                margin-bottom: 5px;
+                color: #333;
+                font-weight: bold;
+            }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+        }
+    </style>
